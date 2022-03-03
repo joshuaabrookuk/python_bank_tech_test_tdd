@@ -10,13 +10,18 @@ class BankTests(unittest.TestCase):
         self.assertEqual(self.bank.balance, 0)
 
     def test_bank_deposit(self):
-        self.bank.credit(1000)
+        self.bank.deposit(1000)
         self.assertEqual(self.bank.balance, 1000)
 
     def test_bank_further_deposite(self):
-        self.bank.credit(1000)
-        self.bank.credit(2000)
+        self.bank.deposit(1000)
+        self.bank.deposit(2000)
         self.assertEqual(self.bank.balance, 3000)
+
+    def test_bank_further_deposite(self):
+        self.bank.deposit(3000)
+        self.bank.withdrawal(500)
+        self.assertEqual(self.bank.balance, 2500)
 
 if __name__ == '__main__':
     unittest.main()
