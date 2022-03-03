@@ -4,4 +4,4 @@ class Bank():
         self.balance = 0
 
     def credit(self, ammount):
-        self.balance = ammount
+        self.balance += ammount
