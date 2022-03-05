@@ -1,4 +1,6 @@
-class Interactions():
+from transactions import Transactions
+
+class Interactions(Transactions):
 
     def deposit(self, ammount):
         self.balance += ammount

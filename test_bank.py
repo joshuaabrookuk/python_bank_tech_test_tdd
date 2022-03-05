@@ -30,6 +30,12 @@ class InteractionsTests(unittest.TestCase):
         self.bank.withdrawal(500)
         self.assertEqual(self.bank.balance, 2500)
 
+
+class TransactionsTests(unittest.TestCase):
+
+    def setUp(self):
+        self.bank = Bank()
+
     def test_bank_print_first_line(self):
         first_line = self.bank.print_statment
         self.assertEqual(self.bank.print_statment, first_line)
