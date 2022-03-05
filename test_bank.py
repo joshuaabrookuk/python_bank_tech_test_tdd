@@ -1,5 +1,6 @@
 import unittest
 from bank import Bank
+from interactions import Interactions
 
 class BankTests(unittest.TestCase):
 
@@ -8,6 +9,11 @@ class BankTests(unittest.TestCase):
 
     def test_bank_banance(self):
         self.assertEqual(self.bank.balance, 0)
+
+class InteractionsTests(unittest.TestCase):
+
+    def setUp(self):
+        self.bank = Bank()
 
     def test_bank_deposit(self):
         self.bank.deposit(1000)
