@@ -31,15 +31,13 @@ class InteractionsTests(unittest.TestCase):
         self.assertEqual(self.bank.balance, 2500)
 
 
-class TransactionsTests(unittest.TestCase):
+class PrintTransactionsTests(unittest.TestCase):
 
     def setUp(self):
         self.bank = Bank()
 
-    def test_bank_print_first_line(self):
-        first_line = self.bank.print_statment
-        self.assertEqual(self.bank.print_statment, first_line)
-
+    def test_bank_print_header(self):
+        self.assertEqual(self.bank.print_statment(), 'date || credit || debit || balance \n')
 
 if __name__ == '__main__':
     unittest.main()

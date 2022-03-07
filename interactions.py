@@ -1,6 +1,6 @@
-from transactions import Transactions
+from printtransactions import PrintTransactions
 
-class Interactions(Transactions):
+class Interactions(PrintTransactions):
 
     def deposit(self, ammount):
         self.balance += ammount
@@ -8,5 +8,5 @@ class Interactions(Transactions):
     def withdrawal(self, ammount):
         self.balance -= ammount
 
-    def print_statment():
-        return 'date || credit || debit || balance'
+    def print_statment(self):
+        return self.header
