@@ -37,7 +37,7 @@ class PrintTransactionsTests(unittest.TestCase):
         self.bank = Bank()
 
     def test_bank_print_header(self):
-        self.assertEqual(self.bank.print_statment(), 'date || credit || debit || balance \n')
-
+        self.assertIn(self.bank.print_statment()[0], 'date || credit || debit || balance \n')
+        
 if __name__ == '__main__':
     unittest.main()

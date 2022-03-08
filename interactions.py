@@ -9,4 +9,6 @@ class Interactions(PrintTransactions):
         self.balance -= ammount
 
     def print_statment(self):
-        return self.header
+        array = self.transation_list
+        array.append(self.header)
+        return array
