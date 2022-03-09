@@ -49,10 +49,13 @@ class PrintTransactionsTests(unittest.TestCase):
     def test_bank_print_prints_header(self):
         self.assertEqual(self.bank.print_statment(), ['date || credit || debit || balance \n'])
 
-    # def test_bank_print_first_transaction(self):
-    #     self.bank.deposit(1000)
-    #     self.assertEqual(self.bank.transation_list, ['date || credit || debit || balance',f'{self.date_today} || 1000.00 || || 1000.00'])
-    #     self.assertEqual(self.bank.print_statment(), 'cool')
+    def test_bank_print_first_transaction(self):
+        self.bank.deposit(1000)
+        self.assertEqual(self.bank.transation_list[0], f'{self.date_today} || 1000.00 || || 1000.00')
+
+    def test_bank_print_first_transaction(self):
+        self.bank.deposit(1000)
+        self.assertEqual(self.bank.print_statment(), ['date || credit || debit || balance \n',f'{self.date_today} || 1000.00 || || 1000.00 \n'])
 
 if __name__ == '__main__':
     unittest.main()

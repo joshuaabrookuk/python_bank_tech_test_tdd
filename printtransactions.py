@@ -10,5 +10,5 @@ class PrintTransactions(object):
         self.date = now.strftime('%m/%d/%Y')
 
     def print_statment(self):
-        self.transation_list.append(self.header)
+        self.transation_list.insert(0, self.header)
         return self.transation_list
