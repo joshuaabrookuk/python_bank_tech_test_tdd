@@ -1,5 +1,7 @@
 import unittest
 from bank import Bank
+from datetime import datetime
+now = datetime.now()
 
 
 class BankTests(unittest.TestCase):
@@ -35,9 +37,22 @@ class PrintTransactionsTests(unittest.TestCase):
 
     def setUp(self):
         self.bank = Bank()
+        self.date_today = now.strftime('%m/%d/%Y')
 
-    def test_bank_print_header(self):
-        self.assertIn(self.bank.print_statment()[0], 'date || credit || debit || balance \n')
-        
+    def test_that_transation_list_is_empty(self):
+        self.assertEqual(self.bank.transation_list, [])
+
+    def test_bank_print_adds_header(self):
+        self.bank.print_statment()
+        self.assertEqual(self.bank.transation_list[0], 'date || credit || debit || balance \n')
+
+    def test_bank_print_prints_header(self):
+        self.assertEqual(self.bank.print_statment(), ['date || credit || debit || balance \n'])
+
+    # def test_bank_print_first_transaction(self):
+    #     self.bank.deposit(1000)
+    #     self.assertEqual(self.bank.transation_list, ['date || credit || debit || balance',f'{self.date_today} || 1000.00 || || 1000.00'])
+    #     self.assertEqual(self.bank.print_statment(), 'cool')
+
 if __name__ == '__main__':
     unittest.main()

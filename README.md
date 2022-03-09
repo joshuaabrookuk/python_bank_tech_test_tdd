@@ -3,8 +3,8 @@
 language : python <br />
 test framework: pyunit <br />
 linter: pylama <br />
-to run: (with Python installed)
-`python test_bank.py`
+to run: (with Python 3 installed)
+`python3 test_bank.py`
 
 ## Specification
 
