@@ -11,4 +11,6 @@ class PrintTransactions(object):
 
     def print_statment(self):
         self.transation_list.insert(0, self.header)
+        for elem in self.transation_list:
+            print(elem)
         return self.transation_list
