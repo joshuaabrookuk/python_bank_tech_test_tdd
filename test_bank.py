@@ -67,13 +67,17 @@ class PrintTransactionsTests(unittest.TestCase):
          self.bank.deposit(2000)
          self.assertEqual(self.bank.print_statment(), ['date || credit || debit || balance \n',f'{self.date_today} || 1000.00 || || 1000.00 \n',f'{self.date_today} || 2000.00 || || 3000.00 \n'])
 
-# class PrivateClassTests(unittest.TestCase):
-#
-#     def setUp(self):
-#         self.bank = Bank()
-#
-#     def test_private_decimalise_method(self):
-#         self.assertEqual(self.bank.__decimalise(10), 10.00)
+    def test_bank_print_third_transaction(self):
+        self.bank.deposit(1000)
+        self.bank.deposit(2000)
+        self.bank.withdrawal(500)
+        self.assertEqual(self.bank.transation_list[2], f'{self.date_today} || || 500.00 || 2500.00 \n')
+
+    def test_bank_print_third_transaction(self):
+         self.bank.deposit(1000)
+         self.bank.deposit(2000)
+         self.bank.withdrawal(500)
+         self.assertEqual(self.bank.print_statment(), ['date || credit || debit || balance \n',f'{self.date_today} || 1000.00 || || 1000.00 \n',f'{self.date_today} || 2000.00 || || 3000.00 \n',f'{self.date_today} || || 500.00 || 2500.00 \n'])
 
 if __name__ == '__main__':
     unittest.main()
